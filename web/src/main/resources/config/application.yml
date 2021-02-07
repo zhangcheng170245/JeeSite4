@@ -36,10 +36,10 @@ server:
 # 数据库连接
 jdbc: 
   
-  # Mysql 数据库配置
+  # Mysql 数据库配置 192.168.232.131:8888
   type: mysql
   driver: com.mysql.jdbc.Driver
-  url: jdbc:mysql://192.168.232.131:8888/jeesite?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true
+  url: jdbc:mysql://mysql_ip:mysql_port/jeesite?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true
   username: root
   password: root
   testSql: SELECT 1

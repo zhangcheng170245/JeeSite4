@@ -1,12 +1,14 @@
 node('master') {
+    // 定义节点未master
     stage('同步源码') {
             git([url: 'git@gitee.com:11547299/jeesite4.git', branch: '${branch}'])
     }
 
     stage('maven编译打包') {
         sh '''
-            . ~/.bash_profile
-            
+            //  引入环境变量
+            . ~/.bash_profile  
+            // 当前位置赋值给 pwd变量
             export pwd=`pwd`
             export os_type=`uname`
             cd web/src/main/resources/config
@@ -16,6 +18,7 @@ node('master') {
                 sed -i "" "s/mysql_user/${mysql_user}/g" application.yml
                 sed -i "" "s/mysql_pwd/${mysql_pwd}/g" application.yml
             else
+               // 替换Jenkins 中对应的配置项
                 sed -i "s/mysql_ip/${mysql_ip}/g" application.yml
                 sed -i "s/mysql_port/${mysql_port}/g" application.yml
                 sed -i "s/mysql_user/${mysql_user}/g" application.yml
