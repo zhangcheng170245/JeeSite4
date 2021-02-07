@@ -15,8 +15,9 @@ pipeline {
 
     stages{
         stage('同步源码') {
-            steps {
-                git url:'git@github.com:zhangcheng170245/JeeSite4.git', branch:"$params.branch"
+            steps {  //           git([url: 'git@gitee.com:11547299/jeesite4.git', branch: '${branch}'])
+             //   git url:'git@github.com:zhangcheng170245/JeeSite4.git', branch:"$params.branch"
+                git([url: 'git@github.com:zhangcheng170245/JeeSite4.git', branch: '${branch}'])
             }
         }
 
